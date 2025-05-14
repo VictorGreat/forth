@@ -1,0 +1,13 @@
+: SEARCH-ARRAY(CELL) \ zn a len -- addr[x]==zn|0
+0 MAX
+2>R
+BEGIN R@ WHILE
+
+1 RPICK @ OVER = IF RDROP DROP R> EXIT THEN
+R> CELL-
+CELL RP@ +! 
+>R
+REPEAT
+RDROP RDROP 
+DROP 0
+;
